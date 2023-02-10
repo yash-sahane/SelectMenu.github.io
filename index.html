@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="container">
+            <div class="selector">
+                <div class="select-field" id="select-field">
+                    <p id="select-text">Select Social Media</p>
+                    <i class="fa-solid fa-chevron-down" id="down"></i>
+                </div>
+                <ul class="list hide" id="list">
+                    <li class="option">
+                        <i class="fa fa-brands fa-facebook"></i>
+                        <p>Facebook</p>
+                    </li>
+                    <li class="option">
+                        <i class="fa fa-brands fa-youtube"></i>
+                        <p>Youtube</p>
+                    </li>
+                    <li class="option">
+                        <i class="fa fa-brands fa-whatsapp"></i>
+                        <p>Whatsapp</p>
+                    </li>
+                    <li class="option">
+                        <i class="fa fa-brands fa-instagram"></i>
+                        <p>Instagram</p>
+                    </li>
+                    <li class="option">
+                        <i class="fa fa-brands fa-linkedin"></i>
+                        <p>Linkedin</p>
+                    </li>
+                    <li class="option">
+                        <i class="fa fa-brands fa-snapchat"></i>
+                        <p>Snapchat</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    const list = document.getElementById('list')
+    const select_field = document.getElementById('select-field')
+    const rotate = document.getElementById('down')
+    const text = document.getElementById('select-text')
+
+
+    //hard method
+    // document.getElementById('select-field').onclick = function () {
+    //     if (list.style.display === 'none') {
+    //         list.style.display = 'block'
+    //         list.style.tranform = 'scale(1)'
+    //     } else {
+    //         list.style.display = 'none';
+    //         list.style.tranform = 'scale(0)'
+    //     }
+    // }
+
+
+    // easy method
+    select_field.onclick = function () {
+        list.classList.toggle('hide')
+        rotate.classList.toggle('fa-rotate-180')
+    }
+
+    const options = document.querySelectorAll('.option');
+    // options.addEventListener('click', function () {
+    //     select_field.innerHTML = this.textContent;
+    // })
+
+    options.forEach(choice => {
+        choice.onclick = () => {
+            text.innerHTML = choice.textContent
+        }
+    })
+</script>
+
+</html>
